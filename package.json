@@ -8,7 +8,8 @@
     "start-prod": "node app.js",
     "test": "jest",
     "eslint": "eslint './**/*.{js,jsx}'",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "test-e2e": "playwright test e2e-tests"
   },
   "repository": {
     "type": "git",
@@ -47,6 +48,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "@playwright/test": "^1.46.1",
     "axios": "^1.6.5",
     "express": "^4.18.2",
     "react": "^18.2.0",
@@ -54,6 +56,9 @@
     "react-router-dom": "^6.21.1"
   },
   "jest": {
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "testPathIgnorePatterns": [
+      "e2e-tests"
+    ]
   }
 }
