@@ -35,7 +35,7 @@ jobs:
             embeds: |
               [
                 {
-                  "description": "commit by ${{ github.event.commits.committer.name }} broke the build :(",
+                  "description": "commit by ${{ github.event.commits.committer.name }} broke the build :( ",
                   "color": "#ED4245",
                   "footer": {
                     "text": "Severity: Error",
