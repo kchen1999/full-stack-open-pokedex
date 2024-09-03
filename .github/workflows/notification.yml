@@ -24,7 +24,7 @@ jobs:
                 }
               ]
             content: A new version of Pokedex deployed
-            key: ${{ secrets.DISCORD_WEBHOOK }}
+            key: "${{ secrets.DISCORD_WEBHOOK }}"
 
       - name: Test Error
         uses: hugoalh/send-discord-webhook-ghaction@v6.0.2
@@ -41,6 +41,6 @@ jobs:
                 }
               ]
             content: Build failed
-            key: ${{ secrets.DISCORD_WEBHOOK }}
+            key: "${{ secrets.DISCORD_WEBHOOK }}"
 
       
