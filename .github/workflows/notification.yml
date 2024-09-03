@@ -10,39 +10,19 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Notification
-        uses: hugoalh/send-discord-webhook-ghaction@v6.0.2
+        uses: sebastianpopp/discord-action@releases/v2
         if: ${{ success() }}
         with:
-            key: "${{ secrets.DISCORD_WEBHOOK_KEY }}"
-            embeds: |
-              [
-                {
-                  "description": "to https://full-stack-open-pokedex-icy-smoke-5647.fly.dev/ by ${{ github.event.commits.committer.name }}",
-                  "color": "#57F287",
-                  "footer": {
-                    "text": "Severity: Informational",
-                  }
-                }
-              ]
-            content: A new version of Pokedex deployed
-            
+            webhook: ${{ secrets.DISCORD_WEBHOOK_KEY }}
+            message: to https://full-stack-open-pokedex-icy-smoke-5647.fly.dev/ by ${{ github.event.commits.committer.name }}
 
       - name: Test Error
-        uses: hugoalh/send-discord-webhook-ghaction@v6.0.2
+        uses: sebastianpopp/discord-action@releases/v2
         if: ${{ failure() }}
         with:
-            key: "${{ secrets.DISCORD_WEBHOOK_KEY }}"
-            embeds: |
-              [
-                {
-                  "description": "commit by ${{ github.event.commits.committer.name }} broke the build :( ",
-                  "color": "#ED4245",
-                  "footer": {
-                    "text": "Severity: Error",
-                  }
-                }
-              ]
-            content: Build failed
+            webhook: ${{ secrets.DISCORD_WEBHOOK_KEY }}
+            message: commit by ${{ github.event.commits.committer.name }} broke the build :(
+            
             
 
       
