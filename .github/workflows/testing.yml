@@ -38,3 +38,4 @@ jobs:
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event_name == 'push' && contains(join(github.event.commits.*.message), '#skip') == 'false') }}
         run: echo "$COMMIT_MESSAGES"
+  
