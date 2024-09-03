@@ -38,4 +38,16 @@ jobs:
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event_name == 'push' && contains(join(github.event.commits.*.message), '#skip') == 'false') }}
         run: echo "$COMMIT_MESSAGES"
+      - name: commit link
+        env:
+          COMMIT_MESSAGES: ${{ toJson(github.event.head_commit.url ) }}
+        run: echo "$COMMIT_MESSAGES"
+      - name: sha
+        env:
+          COMMIT_MESSAGES: ${{ toJson(github.event.head_commit.sha ) }}
+        run: echo "$COMMIT_MESSAGES"
+      - name: repository url
+        env:
+          COMMIT_MESSAGES: ${{ toJson(github.repositoryUrl ) }}
+        run: echo "$COMMIT_MESSAGES"
   
