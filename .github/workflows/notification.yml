@@ -13,7 +13,7 @@ jobs:
         uses: hugoalh/send-discord-webhook-ghaction@v6.0.2
         if: ${{ success() }}
         with:
-            key: ${{ secrets.DISCORD_WEBHOOK_KEY }}
+            key: "${{ secrets.DISCORD_WEBHOOK_KEY }}"
             embeds: |
               [
                 {
@@ -31,7 +31,7 @@ jobs:
         uses: hugoalh/send-discord-webhook-ghaction@v6.0.2
         if: ${{ failure() }}
         with:
-            key: ${{ secrets.DISCORD_WEBHOOK_KEY }}
+            key: "${{ secrets.DISCORD_WEBHOOK_KEY }}"
             embeds: |
               [
                 {
