@@ -13,6 +13,7 @@ jobs:
         uses: hugoalh/send-discord-webhook-ghaction@v6.0.2
         if: ${{ success() }}
         with:
+            key: ${{ secrets.DISCORD_WEBHOOK }}
             embeds: |
               [
                 {
@@ -24,12 +25,13 @@ jobs:
                 }
               ]
             content: A new version of Pokedex deployed
-            key: "${{ secrets.DISCORD_WEBHOOK }}"
+            
 
       - name: Test Error
         uses: hugoalh/send-discord-webhook-ghaction@v6.0.2
         if: ${{ failure() }}
         with:
+            key: ${{ secrets.DISCORD_WEBHOOK }}
             embeds: |
               [
                 {
@@ -41,6 +43,6 @@ jobs:
                 }
               ]
             content: Build failed
-            key: "${{ secrets.DISCORD_WEBHOOK }}"
+            
 
       
