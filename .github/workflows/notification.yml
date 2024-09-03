@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Notification
-        uses: rjstone/discord-webhook-notify@v1.0.4
+        uses: BubbleProd/discord-webhook-notify@v2.0.1
         if: ${{ success() }}
         with:
             severity: info
@@ -19,7 +19,7 @@ jobs:
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
       - name: Test Error
-        uses: rjstone/discord-webhook-notify@v1.0.4
+        uses: BubbleProd/discord-webhook-notify@v2.0.1
         if: ${{ failure() }}
         with:
             severity: error
