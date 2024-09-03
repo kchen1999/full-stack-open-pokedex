@@ -14,7 +14,7 @@ jobs:
         if: ${{ success() }}
         with:
             webhook: ${{ secrets.DISCORD_WEBHOOK_KEY }}
-            message: A new version of Pokedex deployed - to https://full-stack-open-pokedex-icy-smoke-5647.fly.dev/ 
+            message: A new version of Pokedex deployed - to https://full-stack-open-pokedex-icy-smoke-5647.fly.dev/ by ${{ github.event.pusher.name }}
 
       - name: Test Error
         uses: sebastianpopp/discord-action@releases/v2
