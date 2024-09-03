@@ -9,9 +9,8 @@ jobs:
   discord_notification: 
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v4
       - name: Notification
-        uses: rjstone/discord-webhook-notify@v1
+        uses: rjstone/discord-webhook-notify@v1.0.4
         if: ${{ success() }}
         with:
             severity: info
@@ -19,9 +18,8 @@ jobs:
             text: A new version of Pokedex deployed
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
-      - uses: actions/checkout@v4
       - name: Test Error
-        uses: rjstone/discord-webhook-notify@v1
+        uses: rjstone/discord-webhook-notify@v1.0.4
         if: ${{ failure() }}
         with:
             severity: error
