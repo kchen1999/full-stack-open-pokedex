@@ -14,14 +14,14 @@ jobs:
         if: ${{ success() }}
         with:
             webhook: ${{ secrets.DISCORD_WEBHOOK_KEY }}
-            message: to https://full-stack-open-pokedex-icy-smoke-5647.fly.dev/ by ${{ github.event.commits.committer.name }}
+            message: A new version of Pokedex deployed - to https://full-stack-open-pokedex-icy-smoke-5647.fly.dev/ 
 
       - name: Test Error
         uses: sebastianpopp/discord-action@releases/v2
         if: ${{ failure() }}
         with:
             webhook: ${{ secrets.DISCORD_WEBHOOK_KEY }}
-            message: commit by ${{ github.event.commits.committer.name }} broke the build :(
+            message: Build failed :(
             
             
 
