@@ -21,7 +21,7 @@ jobs:
         if: ${{ failure() }}
         with:
             webhook: ${{ secrets.DISCORD_WEBHOOK_KEY }}
-            message: Build failed :(
+            message: Build failed - commit ${{ github.event.head_commit.url }} by ${{ github.event.pusher.name }} broke the build :(
             
             
 
